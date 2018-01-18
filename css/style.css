@@ -93,18 +93,16 @@ a.pure-button-primary {
 .home-menu {
     padding: 0.5em;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    background: white;
 }
-.home-menu {
-    background: #2c3e50;
-}
+
 .pure-menu.pure-menu-fixed {
     
     height: 4em;
     /* Fixed menus normally have a border at the bottom. */
     border-bottom: none;
     /* I need a higher z-index here because of the scroll-over effect. */
-    z-index: 4;
+    
 }
 
 
@@ -115,11 +113,11 @@ a.pure-button-primary {
 }
 
 .home-menu .pure-menu-selected a {
-    color: #ecf0f1;
+    color: black;
 }
 
 .home-menu a {
-    color: #ecf0f1;
+    color: dimgray;
 }
 .home-menu li a:hover,
 .home-menu li a:focus {
@@ -128,11 +126,29 @@ a.pure-button-primary {
     color: #ecf0f1;
 }
 
+.pure-menu-list {
+    margin-top: 0.5em;
+}
+
+.banner {
+    background-image: url(../assets/servers.jpeg);
+    background-color: transparent;
+    height: 30em;
+    background-size: cover;
+    padding-top: 13em;
+}
+
+#banner-text {
+    color: white;
+}
+
 
 /*
  * -- SPLASH STYLES --
  * This is the blue top section that appears on the page.
  */
+
+
 
 .splash-container {
     background-color: #2c3e50;
@@ -174,19 +190,12 @@ a.pure-button-primary {
  * This represents the content area (everything below the blue section)
  */
 .content-wrapper {
-    /* These styles are required for the "scroll-over" effect */
-    position: absolute;
-    top: 87%;
-    width: 100%;
-    min-height: 12%;
-    z-index: 2;
-    background: #ecf0f1;
-    border-radius: 0.5em;
+    background: white;
 }
 
 /* We want to give the content area some more padding */
 .content {
-    padding: 1em 1em 3em;
+    padding:  4em 1em 3em;
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -213,9 +222,13 @@ a.pure-button-primary {
     color: white;
 }
 
+.content-head {
+    color: black
+}
+
 /* This is the class used for the content sub-headers (<h3>) */
 .content-subhead {
-    color: #2c3e50;
+    color: #3d6598;
 }
     .content-subhead i {
         margin-right: 7px;
