@@ -232,6 +232,11 @@ a.pure-button-primary {
     width: 100%;
 }
 
+.brand {
+    height: 5em;
+    
+}
+
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
