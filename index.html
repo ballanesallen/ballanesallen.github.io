@@ -1,195 +1,213 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dean Technologies</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <!--<![endif]-->
-    
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="css/layouts/style-old-ie.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="css/style.css">
-        <!--<![endif]-->
-    
-    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
 </head>
+    
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+
+    
+</script>
+    
 <body>
 
-<div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href=""><img class="brand" src="assets/brand.png"></a>
+    <!--Navigation-->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+                <img class="image" src="assets/brand.png" alt="Dean Technologies">
+            </a>
 
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Services</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-        </ul>
+            <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <p>Support</p>
+            </div>
+            <div class="navbar-item">
+                <p><a href="#services">Our Services</a></p>
+            </div>
+            <div class="navbar-item">
+                <p><a href="#contact">Contact Us</a></p>
+            </div>
+        </div>
+        </div>
+    </nav>
+    
+    <!--Main bannner-->
+    <section class="hero is-large is-primary is-fullheight header-image">
+    <div class="hero-body has-text-centered">
+        <div class="container">
+        <h1 class="title is-size-1">
+            Technology Consulting
+        </h1>
+        <br>
+        </div>
     </div>
-</div>
-
-<div class="banner">
-    <h2 class="content-head is-center" id="banner-text">Our Services</h2>
-</div>
-
-<div class="content-wrapper">
-    <div class="content">
-        <h2 class="content-head is-center">Our Services</h2>
-
-        <div class="pure-g">
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                <div class="card">
-                <h3 class="content-subhead">
-                    <i class="fas fa-desktop fa-lg"></i>
-                    Managed Services
-                </h3>
-                <p>
-                    We'll manage all of your IT services for a flat-rate fee so you can focus your efforts on spurring your revenues to grow.
-                </p>
+    <div class="hero-foot has-text-centered">
+        <a class="button is-primary is-large" href="#contact">Contact Us</a>
+    </div>
+    </section>
+    
+    <!--List of our services-->
+    <section class="section">
+        <div class="container">
+            <a name="services"></a>
+            <h1 class="title has-text-centered">
+                Our services
+            </h1>
+            <div class="columns">
                 
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is4-by-3">
+                            <img src="assets/laptop.jpeg">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-size-5"><i class="fas fa-desktop"></i> Managed IT Services</p>
+                            <p>We'll manage all of your IT services for a flat-rate fee so you can focus your efforts on spurring your revenues to grow.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="column">
                 <div class="card">
-                <h3 class="content-subhead">
-                    <i class="fas fa-lock fa-lg"></i>
-                    Network Security
-                </h3>
-                <p>
-                    No matter the size of your business, network security is a definite requirement for every business in the digital age. If you are worried or unsure of where to start with an internal security audit, our team can help get you on track.
-                </p>
+                    <div class="card-image">
+                        <figure class="image is4-by-3">
+                            <img src="https://www.pandasecurity.com/mediacenter/src/uploads/2016/12/img_panda-altitude-call_center.jpg">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-size-5"><i class="fas fa-headphones"></i> VOIP Services</p>
+                            <p>With our new VoIP solutions in the Inland Empire, you can rest assured that your business needs will be met and far exceeded.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
+            <div class="column">
                 <div class="card">
-                <h3 class="content-subhead">
-                    <i class="far fa-hdd fa-lg"></i>
-                    Data Backup and Recovery
-                </h3>
-                <p>
-                    From tax records to client information, your data is essential in running your business. When it's lost because of an unanticipated natural disaster or even worse, it is stolen, you need to make sure you can recover that data so your business can continue to thrive and grow without losing clients.
-                </p>
+                    <div class="card-image">
+                        <figure class="image is4-by-3">
+                            <img src="https://www.cyberinsurance.com/wp-content/uploads/2016/05/how-safe-are-websites.jpg">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <p class="title is-size-5"><i class="fas fa-hdd"></i> Data Backup</p>
+                            <p>Regardless of your business size, you need dependable data backup and recovery in the Inland Empire. We can provide that to you – call today and prevent the unexpected from ruining your company.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                <div class="card">
-                <h3 class="content-subhead">
-                    <i class="fas fa-cloud fa-lg"></i>
-                    Cloud Computing
-                </h3>
-                <p>
-                    When you need help with organizing your business and want to protect your computers from outside threats but you're on a strict budget, our cloud computing solutions can help.
-                </p>
-                </div>
-            </div>
-             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                <div class="card">
-                <h3 class="content-subhead">
-                    <i class="fas fa-phone fa-lg"></i>
-                    VOIP Services
-                </h3>
-                <p>
-                     With our new VoIP solutions you can rest assured that your business needs will be met and far exceeded.
-                </p>
-                </div>
-            </div>
-            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-3">
-                <div class="card">
-                <h3 class="content-subhead">
-                    <i class="fas fa-envelope fa-lg"></i>
-                    Email/Spam Protection
-                </h3>
-                <p>
-                   As your business grows, so does your network security needs. Spam may begin to multiply and your network will become more vulnerable to attacks such as phishing and malware. To prevent infringement upon your information, you will need a good e-mail system and an exceptional spam protection. Our e-mail service and spam protection service can help.
-                </p>
-                </div>
+            
             </div>
         </div>
+    </section>
+    
+    <!-- Contact form -->
+    <section class="hero is-info is-bold">
+        <div class="hero-body">
+            <a name="contact"></a>
+            <p class="title">Contact us</p>
+            <div class="columns">
+            <div class="column">
+                <p class="subtitle">Fill out the contact form to find out more about our services and how we can help your company thrive.</p>
+            </div>
+            <div class="column">
+            <div class="box">
+                <form action="https://formspree.io/ballanesallen@gmail.com" method="POST">
+                <!-- Name -->
+                <div class="field">
+                <label class="label is-medium"><i class="fas fa-user"></i> Name</label>
+                <div class="control has-icons-right">
+                <input class="input is-medium" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="field">
+                <label class="label is-medium"><i class="fas fa-envelope"></i> Email</label>
+                <div class="control has-icons-right">
+                <input class="input is-medium" type="email" placeholder="john.doe@email.com" name="_replyto" required>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Phone -->
+                
+                <div class="field">
+                <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
+                <div class="control has-icons-right">
+                <input class="input is-medium" type="tel" name="Phone number" placeholder="(555)555-5555">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                    
+                <input type="hidden" name="_subject" value="Testing your website's contact form" />
+                
+                <div class="field">
+                    <div class="control">
+                        <input class="button is-primary is-medium" type="submit" value="Submit">
+                    </div>
+                </div>
+                </form>
+            </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="section">
         
-    </div>
-
-    <div class="ribbon l-box-lrg pure-g">
-        <div class="pure-u-1">
-
-            <div class="contact-card">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-
-                        <label for="name">Name</label>
-                        <input id="name" type="text" placeholder="John Doe">
-
-
-                        <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="johndoe@email.com">
-
-                        <label for="password">Company</label>
-                        <input id="password" type="text" placeholder="Company name">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="content">
-        <h2 class="content-head is-center">Contact Us</h2>
-
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <div class="card">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-
-                        <label for="name">Name</label>
-                        <input id="name" type="text" placeholder="John Doe">
-
-
-                        <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="johndoe@email.com">
-
-                        <label for="password">Company</label>
-                        <input id="password" type="text" placeholder="Company name">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-                </div>
-            </div>
-
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Contact Us</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-
-                <h4>More Information</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-
-
+        
+    </footer>
+    
 </body>
 </html>
