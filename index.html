@@ -36,7 +36,46 @@
   }
 
 });
+    
+document.getElementById("phoneNumber").addEventListener("keyup",function(evt){
+        var phoneNumber = document.getElementById("phoneNumber");
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        phoneNumber.value = phoneFormat(phoneNumber.value);
+});
+    
+function toggleSupportWindow() {
+    document.getElementById("supportWindow").classList.toggle("is-active");
+}
+    
+// A function to format text to look like a phone number
+function phoneFormat(input){
+        // Strip all characters from the input except digits
+        input = input.replace(/\D/g,'');
 
+        // Trim the remaining input to ten characters, to preserve phone number format
+        input = input.substring(0,10);
+
+        // Based upon the length of the string, we add formatting as necessary
+        var size = input.length;
+        if(size == 0){
+                input = input;
+        }else if(size < 4){
+                input = '('+input;
+        }else if(size < 7){
+                input = '('+input.substring(0,3)+') '+input.substring(3,6);
+        }else{
+                input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
+        }
+        return input; 
+}
+    
+function numberPressed(evt){
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if(charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 36 || charCode > 40)){
+                return false;
+        }
+        return true;
+}
     
 </script>
     
@@ -58,7 +97,7 @@
         <div class="navbar-menu" id="navMenu">
         <div class="navbar-end">
             <div class="navbar-item">
-                <p>Support</p>
+                <button class="button is-medium" onclick="toggleSupportWindow()"><i class="far fa-life-ring"></i>Support</button>
             </div>
             <div class="navbar-item">
                 <p><a href="#services">Our Services</a></p>
@@ -69,6 +108,71 @@
         </div>
         </div>
     </nav>
+    
+    <!-- Support modal -->
+    <div class="modal" id="supportWindow">
+        <div class="modal-background" onclick="toggleSupportWindow()"></div>
+        <div class="modal-content">
+            <div class="box">
+                <p class="title">Request support</p>
+                <p class="subtitle">Just fill these out and we'll send help right away!</p>
+                <!-- Form -->
+                <form action="https://formspree.io/ballanesallen@gmail.com" method="POST">
+                <!-- Name -->
+                <div class="field">
+                <label class="label is-medium"><i class="fas fa-user"></i> Name</label>
+                <div class="control has-icons-right">
+                <input class="input is-medium" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="field">
+                <label class="label is-medium"><i class="fas fa-envelope"></i> Email</label>
+                <div class="control has-icons-right">
+                <input class="input is-medium" type="email" placeholder="john.doe@email.com" name="_replyto" required>
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Phone -->
+                
+                <div class="field">
+                <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
+                <div class="control has-icons-right">
+                <input class="input is-medium" onkeypress="return numberPressed(event);" type="tel" name="Phone number" placeholder="(555)555-5555">
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Issue -->
+                
+                
+                <div class="field">
+                    <label class="label is-medium"><i class="fas fa-question-circle"></i> Issue</label>
+                    <textarea class="textarea is-large" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
+                </div>
+                    
+                <input type="hidden" name="_subject" value="Support request" />
+                
+                <div class="field">
+                    <div class="control">
+                        <input class="button is-primary is-medium" type="submit" value="Request support">
+                    </div>
+                </div>
+                </form>
+                <!-- End of Form -->
+            </div>
+        </div> 
+        <button class="modal-close is-large" aria-label="close" onclick="toggleSupportWindow()"></button>
+    </div>
     
     <!--Main bannner-->
     <section class="hero is-large is-primary is-fullheight header-image">
@@ -161,7 +265,7 @@
                 <label class="label is-medium"><i class="fas fa-user"></i> Name</label>
                 <div class="control has-icons-right">
                 <input class="input is-medium" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right has-text-success is-hidden">
                     <i class="fas fa-check-circle"></i>
                 </span>
                 </div>
@@ -172,7 +276,7 @@
                 <label class="label is-medium"><i class="fas fa-envelope"></i> Email</label>
                 <div class="control has-icons-right">
                 <input class="input is-medium" type="email" placeholder="john.doe@email.com" name="_replyto" required>
-                <span class="icon is-small is-right">
+                <span class="icon is-small is-right has-text-success is-hidden">
                     <i class="fas fa-check-circle"></i>
                 </span>
                 </div>
@@ -183,14 +287,14 @@
                 <div class="field">
                 <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
                 <div class="control has-icons-right">
-                <input class="input is-medium" type="tel" name="Phone number" placeholder="(555)555-5555">
-                <span class="icon is-small is-right">
+                <input class="input is-medium" id="phoneNumber" onkeypress="return numberPressed(event);" type="tel" name="Phone number" placeholder="(555)555-5555">
+                <span class="icon is-small is-right has-text-success is-hidden">
                     <i class="fas fa-check-circle"></i>
                 </span>
                 </div>
                 </div>
                     
-                <input type="hidden" name="_subject" value="Testing your website's contact form" />
+                <input type="hidden" name="_subject" value="Info request" />
                 
                 <div class="field">
                     <div class="control">
@@ -203,11 +307,6 @@
             </div>
         </div>
     </section>
-    
-    <footer class="section">
-        
-        
-    </footer>
     
 </body>
 </html>
