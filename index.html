@@ -175,17 +175,71 @@ function numberPressed(evt){
     </div>
     
     <!--Main bannner-->
-    <section class="hero is-large is-primary is-fullheight header-image">
-    <div class="hero-body has-text-centered">
+    <section class="hero is-large is-white is-fullheight header-image">
+    <div class="hero-body">
         <div class="container">
-        <h1 class="title is-size-1">
-            Technology Consulting
-        </h1>
-        <br>
+        <!--Support Form -->
+        <div class="column is-5 is-offset-7">
+            <div class="box">
+                <!-- Form -->
+                <form action="https://formspree.io/ballanesallen@gmail.com" method="POST">
+                <!-- Name -->
+                <div class="field">
+                <label class="label"><i class="fas fa-user"></i> Name</label>
+                <div class="control has-icons-right">
+                <input class="input" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="field">
+                <label class="label"><i class="fas fa-envelope"></i> Email</label>
+                <div class="control has-icons-right">
+                <input class="input" type="email" placeholder="john.doe@email.com" name="_replyto" required>
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Phone -->
+                
+                <div class="field">
+                <label class="label"><i class="fas fa-phone"></i> Phone</label>
+                <div class="control has-icons-right">
+                <input class="input" onkeypress="return numberPressed(event);" type="tel" name="Phone number" placeholder="(555)555-5555">
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+                
+                <!-- Issue -->
+                
+                
+                <div class="field">
+                    <label class="label"><i class="fas fa-question-circle"></i> Issue</label>
+                    <textarea class="textarea" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
+                </div>
+                    
+                <input type="hidden" name="_subject" value="Support request" />
+                
+                <div class="field">
+                    <div class="control">
+                        <input class="button is-primary is-medium" type="submit" value="Request support">
+                    </div>
+                </div>
+                </form>
+                <!-- End of Form -->
+            </div>
+        </div>
         </div>
     </div>
     <div class="hero-foot has-text-centered">
-        <a class="button is-primary is-large" href="#contact">Contact Us</a>
+        <a class="button is-large" href="#contact">Contact Us</a>
     </div>
     </section>
     

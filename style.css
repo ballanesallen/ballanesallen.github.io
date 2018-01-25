@@ -22,3 +22,7 @@ body {
 .brand {
     height: 3em !important;
 }
+
+#supportButton {
+    width: 100%;
+}
