@@ -15,6 +15,10 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.button {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .navbar {
 /*    height: 5em;*/
 }
@@ -27,14 +31,10 @@ body {
     height: 3em !important;
 }
 
-#supportButton {
-    width: 100%;
-}
-
 #contactForm {
     background-color: #0c76bc;
 }
 
-.button {
+.form-button {
     width: 100%;
 }
