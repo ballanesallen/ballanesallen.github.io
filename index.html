@@ -9,76 +9,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://wchat.freshchat.com/js/widget.js"></script>
 </head>
-    
-<script>
- document.addEventListener('DOMContentLoaded', function () {
-
-  // Get all "navbar-burger" elements
-  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
-
-    // Add a click event on each of them
-    $navbarBurgers.forEach(function ($el) {
-      $el.addEventListener('click', function () {
-
-        // Get the target from the "data-target" attribute
-        var target = $el.dataset.target;
-        var $target = document.getElementById(target);
-
-        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-        $el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
-
-      });
-    });
-  }
-
-});
-    
-document.getElementById("phoneNumber").addEventListener("keyup",function(evt){
-        var phoneNumber = document.getElementById("phoneNumber");
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        phoneNumber.value = phoneFormat(phoneNumber.value);
-});
-    
-function toggleSupportWindow() {
-    document.getElementById("supportWindow").classList.toggle("is-active");
-}
-    
-// A function to format text to look like a phone number
-function phoneFormat(input){
-        // Strip all characters from the input except digits
-        input = input.replace(/\D/g,'');
-
-        // Trim the remaining input to ten characters, to preserve phone number format
-        input = input.substring(0,10);
-
-        // Based upon the length of the string, we add formatting as necessary
-        var size = input.length;
-        if(size == 0){
-                input = input;
-        }else if(size < 4){
-                input = '('+input;
-        }else if(size < 7){
-                input = '('+input.substring(0,3)+') '+input.substring(3,6);
-        }else{
-                input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
-        }
-        return input; 
-}
-    
-function numberPressed(evt){
-        var charCode = (evt.which) ? evt.which : evt.keyCode;
-        if(charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 36 || charCode > 40)){
-                return false;
-        }
-        return true;
-}
-    
-</script>
     
 <body>
 
@@ -146,9 +78,9 @@ function numberPressed(evt){
                 <div class="field">
                 <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
                 <div class="control has-icons-right">
-                <input class="input is-medium" onkeypress="return numberPressed(event);" type="tel" name="Phone number" placeholder="(555)555-5555">
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
+                <input class="input is-medium" type="tel" onkeyup="formatPhoneNumber(this)"  onblur="verifyPhoneNumber(this)" name="Phone number" placeholder="(555)555-5555">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle is-hidden"></i>
                 </span>
                 </div>
                 </div>
@@ -211,15 +143,14 @@ function numberPressed(evt){
                 <div class="field">
                 <label class="label"><i class="fas fa-phone"></i> Phone</label>
                 <div class="control has-icons-right">
-                <input class="input" onkeypress="return numberPressed(event);" type="tel" name="Phone number" placeholder="(555)555-5555">
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
+                <input class="input" type="tel" name="Phone number" placeholder="(555)555-5555" onkeyup="formatPhoneNumber(this)" onblur="verifyPhoneNumber(this)">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle is-hidden"></i>
                 </span>
                 </div>
                 </div>
                 
                 <!-- Issue -->
-                
                 
                 <div class="field">
                     <label class="label"><i class="fas fa-question-circle"></i> Issue</label>
@@ -344,9 +275,9 @@ function numberPressed(evt){
                 <div class="field">
                 <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
                 <div class="control has-icons-right">
-                <input class="input is-medium" id="phoneNumber" onkeypress="return numberPressed(event);" type="tel" name="Phone number" placeholder="(555)555-5555">
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
+                <input class="input is-medium" type="tel" name="Phone number" placeholder="(555) 555 - 5555" onkeyup="formatPhoneNumber(this)" onblur="verifyPhoneNumber(this)">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle is-hidden"></i>
                 </span>
                 </div>
                 </div>
@@ -365,5 +296,123 @@ function numberPressed(evt){
         </div>
     </section>
     
+    <!-- Fresh chat widget -->
+    <script>
+    window.fcWidget.init({
+    token: "fe1ce649-2465-48e6-86de-3c545677ad62",
+    host: "https://wchat.freshchat.com"
+    });
+    </script>
+    
 </body>
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+});
+    
+    
+function formatPhoneNumber(element) {
+    element.value = phoneFormat(element.value);
+}
+
+    
+function toggleSupportWindow() {
+    document.getElementById("supportWindow").classList.toggle("is-active");
+}
+    
+// A function to format text to look like a phone number
+function phoneFormat(input){
+        // Strip all characters from the input except digits
+        input = input.replace(/\D/g,'');
+
+        // Trim the remaining input to ten characters, to preserve phone number format
+        input = input.substring(0,10);
+
+        // Based upon the length of the string, we add formatting as necessary
+        var size = input.length;
+        if(size == 0){
+                input = input;
+        }else if(size < 4){
+                input = '('+input;
+        }else if(size < 7){
+                input = '('+input.substring(0,3)+') '+input.substring(3,6);
+        }else{
+                input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
+        }
+        return input; 
+}
+    
+function verifyPhoneNumber(phoneNumberField){
+    let phoneNumber = phoneNumberField.value.replace(/\D/g,'');
+    let span = phoneNumberField.parentElement.getElementsByTagName("span")[0];
+    let icon = span.getElementsByTagName("i")[0];
+    
+    icon.className = icon.className.replace(/\bis-hidden\b/g, "");
+    
+    if(phoneNumber.length == 10) {
+        //phoneNumberField.parentElement.getElementsByTagName("span")[0].classList.toggle("is-hidden"); 
+        
+        //Making the checkmark green
+        span.className = span.className.replace(/\has-text-danger\b/g, "");
+        
+        var arr = span.className.split(" ");
+        if (arr.indexOf("has-text-success") == -1) {
+            span.className += " has-text-success";
+        }
+        
+        icon.className = icon.className.replace(/\bfa-times-circle\b/g, "");
+        
+        arr = icon.className.split(" ");
+        if (arr.indexOf("fa-check-circle") == -1) {
+            icon.className += " fa-check-circle";
+        }
+        
+        console.log(icon.className)
+    } else {
+        
+        //errorIcon.className = errorIcon.className.replace(/\bis-hidden\b/g, ""); 
+        
+        span.className = span.className.replace(/\has-text-success\b/g, "");
+        
+        //Set the font to red
+        var arr = span.className.split(" ");
+        if (arr.indexOf("has-text-danger") == -1) {
+            span.className += " has-text-danger";
+        }
+        
+        icon.className = icon.className.replace(/\bfa-check-circle\b/g, "");
+        
+        //Hide checkmark and enable error icon
+        arr = icon.className.split(" ");
+        if (arr.indexOf("fa-times-circle") == -1) {
+            icon.className += " fa-times-circle";
+        }
+        
+        console.log(icon.className)
+    }
+    
+}
+    
+</script>
 </html>
