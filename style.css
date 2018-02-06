@@ -15,8 +15,24 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.content {
+    line-height: 2;
+    
+}
+
 .button {
     font-family: 'Open Sans', sans-serif;
+    -webkit-box-shadow: 0 10px 20px 0 rgba(125, 94, 163, 0.28);
+    -moz-box-shadow: 0 10px 20px 0 rgba(125, 94, 163, 0.28);
+    -ms-box-shadow: 0 10px 20px 0 rgba(125, 94, 163, 0.28);
+    -o-box-shadow: 0 10px 20px 0 rgba(125, 94, 163, 0.28);
+    box-shadow: 0 10px 20px 0 rgba(125, 94, 163, 0.28);
+    
+    -webkit-box-shadow: 0 10px 20px 0 rgba(71, 166, 255, 0.28);
+    -moz-box-shadow: 0 10px 20px 0 rgba(71, 166, 255, 0.28);
+    -ms-box-shadow: 0 10px 20px 0 rgba(71, 166, 255, 0.28);
+    -o-box-shadow: 0 10px 20px 0 rgba(71, 166, 255, 0.28);
+    box-shadow: 0 10px 20px 0 rgba(71, 166, 255, 0.28);
 }
 
 .navbar {
@@ -37,4 +53,22 @@ body {
 
 .form-button {
     width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 45%;
+}
+
+.divider-line {
+    height: 1px;
+    background-color: #9CB3C6;
+    width: 100%;
+}
+
+.subtitle {
+    color: #0c76bc;
 }
