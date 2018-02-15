@@ -17,7 +17,14 @@ body {
 
 .content {
     line-height: 2;
+    font-size: 1.2em;
     
+}
+
+.service-card {
+    border-width: 1px;
+    border-color: #9CB3C6;
+    border-radius: 50;
 }
 
 .button {
