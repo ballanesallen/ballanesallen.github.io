@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <script src="https://wchat.freshchat.com/js/widget.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -19,15 +20,16 @@
 
     gtag('config', 'UA-113142353-1');
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
-    
+
 <body>
 
     <!--Navigation-->
-    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="http://www.dean-technologies.com">
+            <a class="navbar-item" href="./index.html">
                 <img class="image" src="assets/brand.png" alt="Dean Technologies">
             </a>
 
@@ -40,25 +42,27 @@
         <div class="navbar-menu" id="navMenu">
         <div class="navbar-end">
             <div class="navbar-item">
-                <button class="button is-medium" onclick="toggleSupportWindow()"><i class="far fa-life-ring"></i>Support</button>
+              <p><a href="tel:1-760-617-4086">1-866-400-8582</a></p>
+            </div>
+            <div class="navbar-item">
+                <button class="button is-rounded" onclick="toggleSupportWindow()"><i class="far fa-life-ring"></i>&nbsp Support</button>
             </div>
             <div class="navbar-item">
                 <p><a href="#services">Our Services</a></p>
             </div>
             <div class="navbar-item">
-                <p><a href="#contact">Contact Us</a></p>
+                <p><a href="#contactForm">Contact Us</a></p>
             </div>
         </div>
         </div>
     </nav>
-    
+
     <!-- Support modal -->
     <div class="modal" id="supportWindow">
         <div class="modal-background" onclick="toggleSupportWindow()"></div>
         <div class="modal-content">
             <div class="box">
-                <p class="title">Request support</p>
-                <p class="subtitle">Just fill these out and we'll send help right away!</p>
+                <p class="subtitle is-1 section-title">Request support</p>
                 <!-- Form -->
                 <form action="https://formspree.io/helpdesk@dean-technologies.com" method="POST">
                 <!-- Name -->
@@ -71,7 +75,7 @@
                 </span>
                 </div>
                 </div>
-                
+
                 <!-- Email -->
                 <div class="field">
                 <label class="label is-medium"><i class="fas fa-envelope"></i> Email</label>
@@ -82,9 +86,9 @@
                 </span>
                 </div>
                 </div>
-                
+
                 <!-- Phone -->
-                
+
                 <div class="field">
                 <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
                 <div class="control has-icons-right">
@@ -94,188 +98,98 @@
                 </span>
                 </div>
                 </div>
-                
+
                 <!-- Issue -->
-                
-                
+
+
                 <div class="field">
                     <label class="label is-medium"><i class="fas fa-question-circle"></i> Issue</label>
                     <textarea class="textarea is-large" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
                 </div>
-                    
+
                 <input type="hidden" name="_subject" value="Support request" />
-                
+
                 <div class="field">
                     <div class="control">
-                        <input class="button is-primary is-medium form-button" type="submit" value="Request support">
+                        <input class="button is-info is-medium form-button is-rounded" type="submit" value="Request support">
                     </div>
                 </div>
                 </form>
                 <!-- End of Form -->
             </div>
-        </div> 
+        </div>
         <button class="modal-close is-large" aria-label="close" onclick="toggleSupportWindow()"></button>
     </div>
-    
+
+    <!--Calendly pop-up-->
+    <div class="modal" id="scheduleAppointment">
+      <div class="modal-background" onclick="toggleScheduleAppointmentWindow()"></div>
+      <div class="modal-content">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/allendean" style="min-width:320px;height: 400px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+        <!-- Calendly inline widget end -->
+      </div>
+      <button class="modal-close is-large" aria-label="close" onclick="toggleScheduleAppointmentWindow()"></button>
+    </div>
+
     <!--Main bannner-->
-    <section class="hero is-medium is-white header-image">
-    <div class="hero-body box-container">
+    <section class="hero is-fullheight is-white header-image">
+    <div class="hero-body">
         <div class="container">
-        <!--Support Form -->
-        <div class="column is-5 is-offset-7">
-            <div class="box">
-                <!-- Form -->
-                <form action="https://formspree.io/helpdesk@dean-technologies.com" method="POST">
-                <!-- Name -->
-                <div class="field">
-                <label class="label"><i class="fas fa-user"></i> Name</label>
-                <div class="control has-icons-right">
-                <input class="input" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
-                </span>
+          <div class="columns">
+            <div class="column">
+              <h1 class="subtitle is-1 header-title"></h1>
+              <p class="subtitle is-3">Your search for a trustworthy, modern and responsible tech support company is over.</p>
+              <br>
+              <div class="columns">
+                <div class="column">
+                <a href="#services"class="button is-rounded is-info is-medium half-width">Get Started</a>
                 </div>
+              </div>
+              <div class="columns">
+                <div class="column">
+                <button class="button is-rounded is-info is-outlined is-medium half-width" onclick="toggleSupportWindow()">Request Support</a>
                 </div>
-                
-                <!-- Email -->
-                <div class="field">
-                <label class="label"><i class="fas fa-envelope"></i> Email</label>
-                <div class="control has-icons-right">
-                <input class="input" type="email" placeholder="john.doe@email.com" name="_replyto" required>
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                </div>
-                </div>
-                
-                <!-- Phone -->
-                
-                <div class="field">
-                <label class="label"><i class="fas fa-phone"></i> Phone</label>
-                <div class="control has-icons-right">
-                <input class="input" type="tel" name="Phone number" placeholder="(555)555-5555" onkeyup="formatPhoneNumber(this)" onblur="verifyPhoneNumber(this)">
-                <span class="icon is-small is-right">
-                    <i class="fas fa-check-circle is-hidden"></i>
-                </span>
-                </div>
-                </div>
-                
-                <!-- Issue -->
-                
-                <div class="field">
-                    <label class="label"><i class="fas fa-question-circle"></i> Issue</label>
-                    <textarea class="textarea" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
-                </div>
-                    
-                <input type="hidden" name="_subject" value="Support request" />
-                
-                <div class="field">
-                    <div class="control">
-                        <input class="button is-info is-outlined is-medium form-button" type="submit" value="Request support">
-                    </div>
-                </div>
-                </form>
-                <!-- End of Form -->
+              </div>
             </div>
-        </div>
+            <div class="column has-text-centered">
+              <img src="assets/modern-office.png">
+            </div>
         </div>
     </div>
-    <!--
-    <div class="hero-foot has-text-centered">
-        <a class="button is-large" href="#contact">Contact Us</a>
-    </div>
-    -->
-    </section>
-    
-    <!--List of our services-->
-    <!--
-    <section class="section">
-        <div class="container">
-            <a name="services"></a>
-            <h1 class="title has-text-centered">
-                Our services
-            </h1>
-            <div class="columns">
-                
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is4-by-3">
-                            <img src="assets/laptop.jpeg">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            <p class="title is-size-5"><i class="fas fa-desktop"></i> Managed IT Services</p>
-                            <p>We'll manage all of your IT services for a flat-rate fee so you can focus your efforts on spurring your revenues to grow.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is4-by-3">
-                            <img src="https://www.pandasecurity.com/mediacenter/src/uploads/2016/12/img_panda-altitude-call_center.jpg">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            <p class="title is-size-5"><i class="fas fa-headphones"></i> VOIP Services</p>
-                            <p>With our new VoIP solutions in the Inland Empire, you can rest assured that your business needs will be met and far exceeded.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is4-by-3">
-                            <img src="https://www.cyberinsurance.com/wp-content/uploads/2016/05/how-safe-are-websites.jpg">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            <p class="title is-size-5"><i class="fas fa-hdd"></i> Data Backup</p>
-                            <p>Regardless of your business size, you need dependable data backup and recovery in the Inland Empire. We can provide that to you – call today and prevent the unexpected from ruining your company.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            </div>
-        </div>
-    </section>
-    -->
-    
-    <section class="section">
-        <div class="container">
-            <h1 class="title is-2 has-text-centered"></h1>
-            <section class="section">
+  </div>
+  </section>
+
+  <!--SERVICES -->
+  <section class="section"  id="services">
+            <div class="container">
+            <h1 class="subtitle is-1 section-title">We offer</h1>
+            <br>
             <div class="columns">
                 <div class="column">
-                    
+
                     <p class="subtitle is-3">Managed IT Services</p>
                     <p class="content">We'll manage all of your IT services for a flat-rate fee so you can focus your efforts on spurring your revenues to grow. Let us give you the peace of mind you deserve with your small business today with Dean Technologies' managed services.</p>
-                    
-                    <button class="button is-rounded is-info is-medium half-width">Learn more</button>
-                    
-                </div>   
+
+                    <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+
+                </div>
                 <div class="column has-text-centered">
-                    <img src="assets/data-center.jpg" width="299" height="309">
+                    <img src="assets/managed-it.svg" width="300">
                 </div>
                 </div>
-             <div class="divider-line"></div>
-             <br>
-             <br>
+                <div class="divider-line"></div>
+                <br>
+                <br>
              <div class="columns">
                  <div class="column">
                      <p class="subtitle is-3">Data Backup and Recovery</p>
                      <p class="content">Regardless of your business size, you need dependable data backup and recovery in the Inland Empire. We can provide that to you – call today and prevent the unexpected from ruining your company.</p>
-                     <button class="button is-rounded is-info is-medium half-width">Learn more</button>
+                     <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
                  </div>
                  <div class="column has-text-centered">
-                     <img src="assets/shield.jpg" width="127" height="174">
+                     <img src="assets/data-backup.svg" width="300">
                  </div>
                 </div>
                 <div class="divider-line"></div>
@@ -285,75 +199,71 @@
                     <div class="column">
                         <p class="subtitle is-3">VoIP Services</p>
                         <p class="content">With our new VoIP solutions in the Inland Empire, you can rest assured that your business needs will be met and far exceeded.</p>
-                        <button class="button is-rounded is-info is-medium half-width">Learn more</button>
+                        <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
                     </div>
+                    <div class="column has-text-centered">
+                      <img src="assets/headphones.svg" width="300">
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+                <br>
+                <br>
+                <div class="columns">
                     <div class="column">
+                        <p class="subtitle is-3">Email hosting</p>
+                        <p class="content">With our new VoIP solutions in the Inland Empire, you can rest assured that your business needs will be met and far exceeded.</p>
+
+                        <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+                    </div>
+                    <div class="column has-text-centered">
+                        <img src="assets/mail.svg" width="300">
                     </div>
                 </div>
-            </section>
-        </div>
-    </section>
-    
-    <!-- Contact form -->
-    <section class="hero" id="contactForm">
-        <div class="hero-body">
-            <a name="contact"></a>
-            <p class="title has-text-white">Contact us</p>
-            <div class="columns">
-            <div class="column">
-                <p class="subtitle has-text-white">Fill out the contact form to find out more about our services and how we can help your company thrive.</p>
-            </div>
-            <div class="column">
-            <div class="box">
-                <form action="https://formspree.io/helpdesk@dean-technologies.com" method="POST">
-                <!-- Name -->
-                <div class="field">
-                <label class="label is-medium"><i class="fas fa-user"></i> Name</label>
-                <div class="control has-icons-right">
-                <input class="input is-medium" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                </div>
-                </div>
-                
-                <!-- Email -->
-                <div class="field">
-                <label class="label is-medium"><i class="fas fa-envelope"></i> Email</label>
-                <div class="control has-icons-right">
-                <input class="input is-medium" type="email" placeholder="john.doe@email.com" name="_replyto" required>
-                <span class="icon is-small is-right has-text-success is-hidden">
-                    <i class="fas fa-check-circle"></i>
-                </span>
-                </div>
-                </div>
-                
-                <!-- Phone -->
-                
-                <div class="field">
-                <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
-                <div class="control has-icons-right">
-                <input class="input is-medium" type="tel" name="Phone number" placeholder="(555) 555 - 5555" onkeyup="formatPhoneNumber(this)" onblur="verifyPhoneNumber(this)">
-                <span class="icon is-small is-right">
-                    <i class="fas fa-check-circle is-hidden"></i>
-                </span>
-                </div>
-                </div>
-                    
-                <input type="hidden" name="_subject" value="Info request" />
-                
-                <div class="field">
-                    <div class="control">
-                        <input class="button is-primary is-rounded form-button" type="submit" value="Submit">
+                <div class="divider-line"></div>
+                <br>
+                <br>
+                <div class="columns">
+                    <div class="column">
+                        <p class="subtitle is-3">Web Design</p>
+                        <p class="content">With our new VoIP solutions in the Inland Empire, you can rest assured that your business needs will be met and far exceeded.</p>
+
+                        <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+                    </div>
+                    <div class="column has-text-centered">
+                        <img src="assets/web-design.svg" width="350">
                     </div>
                 </div>
-                </form>
-            </div>
-            </div>
-            </div>
+                </div>
+        </section>
+
+    <!-- Contact Us-->
+    <section class="section" id="contactForm">
+      <div class="container">
+      <h1 class="subtitle is-1 section-title has-text-centered">Contact us</h1>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <button class="button is-info full-width is-rounded is-large" onclick="toggleScheduleAppointmentWindow()">Schedule an appointment</button>
+        </div>
+      </div>
+    </div>
+    </section>
+    <div class="divider-line"></div>
+    <section class="footer">
+        <div class="columns">
+          <div class="column">
+            <p class="content">CONNECT WITH US</p>
+            <ul>
+              <li><i class="fab fa-facebook fa-lg"></i></li>
+              <li><i class="fab fa-twitter fa-lg"></i></li>
+              <li><i class="fab fa-linkedin fa-lg"></i></li>
+            </ul>
+            <ul>
+              <li><i class="fas fa-phone-square fa-lg"></i>&nbsp<a href="tel:1-760-617-4086">1-866-400-8582</a></li>
+            </ul>
+          </div>
         </div>
     </section>
-    
+
     <!-- Fresh chat widget -->
     <script>
     window.fcWidget.init({
@@ -361,7 +271,7 @@
     host: "https://wchat.freshchat.com"
     });
     </script>
-    
+
 </body>
 <script>
  document.addEventListener('DOMContentLoaded', function () {
@@ -387,18 +297,47 @@
       });
     });
   }
+
 });
-    
-    
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
 function formatPhoneNumber(element) {
     element.value = phoneFormat(element.value);
 }
 
-    
+
 function toggleSupportWindow() {
     document.getElementById("supportWindow").classList.toggle("is-active");
 }
-    
+
+function toggleScheduleAppointmentWindow() {
+    document.getElementById("scheduleAppointment").classList.toggle("is-active");
+}
+
 // A function to format text to look like a phone number
 function phoneFormat(input){
         // Strip all characters from the input except digits
@@ -418,59 +357,59 @@ function phoneFormat(input){
         }else{
                 input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
         }
-        return input; 
+        return input;
 }
-    
+
 function verifyPhoneNumber(phoneNumberField){
     let phoneNumber = phoneNumberField.value.replace(/\D/g,'');
     let span = phoneNumberField.parentElement.getElementsByTagName("span")[0];
     let icon = span.getElementsByTagName("i")[0];
-    
+
     icon.className = icon.className.replace(/\bis-hidden\b/g, "");
-    
+
     if(phoneNumber.length == 10) {
-        //phoneNumberField.parentElement.getElementsByTagName("span")[0].classList.toggle("is-hidden"); 
-        
+        //phoneNumberField.parentElement.getElementsByTagName("span")[0].classList.toggle("is-hidden");
+
         //Making the checkmark green
         span.className = span.className.replace(/\has-text-danger\b/g, "");
-        
+
         var arr = span.className.split(" ");
         if (arr.indexOf("has-text-success") == -1) {
             span.className += " has-text-success";
         }
-        
+
         icon.className = icon.className.replace(/\bfa-times-circle\b/g, "");
-        
+
         arr = icon.className.split(" ");
         if (arr.indexOf("fa-check-circle") == -1) {
             icon.className += " fa-check-circle";
         }
-        
+
         console.log(icon.className)
     } else {
-        
-        //errorIcon.className = errorIcon.className.replace(/\bis-hidden\b/g, ""); 
-        
+
+        //errorIcon.className = errorIcon.className.replace(/\bis-hidden\b/g, "");
+
         span.className = span.className.replace(/\has-text-success\b/g, "");
-        
+
         //Set the font to red
         var arr = span.className.split(" ");
         if (arr.indexOf("has-text-danger") == -1) {
             span.className += " has-text-danger";
         }
-        
+
         icon.className = icon.className.replace(/\bfa-check-circle\b/g, "");
-        
+
         //Hide checkmark and enable error icon
         arr = icon.className.split(" ");
         if (arr.indexOf("fa-times-circle") == -1) {
             icon.className += " fa-times-circle";
         }
-        
+
         console.log(icon.className)
     }
-    
+
 }
-    
+
 </script>
 </html>
