@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
     <script src="https://wchat.freshchat.com/js/widget.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -62,14 +60,14 @@
         <div class="modal-background" onclick="toggleSupportWindow()"></div>
         <div class="modal-content">
             <div class="box">
-                <p class="subtitle is-1 section-title">Request support</p>
+
                 <!-- Form -->
                 <form action="https://formspree.io/helpdesk@dean-technologies.com" method="POST">
                 <!-- Name -->
                 <div class="field">
-                <label class="label is-medium"><i class="fas fa-user"></i> Name</label>
+                <label class="label is-small"><i class="fas fa-user"></i> Name</label>
                 <div class="control has-icons-right">
-                <input class="input is-medium" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
+                <input class="input is-small" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
                 <span class="icon is-small is-right has-text-success is-hidden">
                     <i class="fas fa-check-circle"></i>
                 </span>
@@ -78,9 +76,9 @@
 
                 <!-- Email -->
                 <div class="field">
-                <label class="label is-medium"><i class="fas fa-envelope"></i> Email</label>
+                <label class="label is-small"><i class="fas fa-envelope"></i> Email</label>
                 <div class="control has-icons-right">
-                <input class="input is-medium" type="email" placeholder="john.doe@email.com" name="_replyto" required>
+                <input class="input is-small" type="email" placeholder="john.doe@email.com" name="_replyto" required>
                 <span class="icon is-small is-right has-text-success is-hidden">
                     <i class="fas fa-check-circle"></i>
                 </span>
@@ -90,9 +88,9 @@
                 <!-- Phone -->
 
                 <div class="field">
-                <label class="label is-medium"><i class="fas fa-phone"></i> Phone</label>
+                <label class="label is-small"><i class="fas fa-phone"></i> Phone</label>
                 <div class="control has-icons-right">
-                <input class="input is-medium" type="tel" onkeyup="formatPhoneNumber(this)"  onblur="verifyPhoneNumber(this)" name="Phone number" placeholder="(555)555-5555">
+                <input class="input is-small" type="tel" onkeyup="formatPhoneNumber(this)"  onblur="verifyPhoneNumber(this)" name="Phone number" placeholder="(555)555-5555">
                 <span class="icon is-small is-right">
                     <i class="fas fa-check-circle is-hidden"></i>
                 </span>
@@ -103,8 +101,8 @@
 
 
                 <div class="field">
-                    <label class="label is-medium"><i class="fas fa-question-circle"></i> Issue</label>
-                    <textarea class="textarea is-large" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
+                    <label class="label is-small"><i class="fas fa-question-circle"></i> Issue</label>
+                    <textarea class="textarea is-small" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
                 </div>
 
                 <input type="hidden" name="_subject" value="Support request" />
@@ -149,7 +147,7 @@
               </div>
               <div class="columns">
                 <div class="column">
-                <button class="button is-rounded is-info is-outlined is-medium half-width" onclick="toggleSupportWindow()">Request Support</a>
+                <button class="button is-rounded is-info is-outlined is-medium half-width" onclick="toggleSupportWindow()">Support</a>
                 </div>
               </div>
             </div>
