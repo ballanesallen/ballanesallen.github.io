@@ -1,0 +1,115 @@
+.header-image {
+
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+}
+
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.content {
+    line-height: 2;
+    font-size: 1.5em;
+
+}
+
+.service-card {
+    border-width: 1px;
+    border-color: #9CB3C6;
+    border-radius: 50;
+}
+
+.button {
+    font-family: 'Open Sans', sans-serif;
+    /*box-shadow:1px 4px 9px #032238;*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.navbar {
+/*    height: 5em;*/
+}
+
+.navbar-burger {
+    border: 0;
+}
+
+.brand {
+    height: 3em !important;
+}
+
+#contactForm {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.09, #FFFFFF),
+    color-stop(0.74, #BAD4FF)
+  );
+  background-image: -o-linear-gradient(bottom, #FFFFFF 9%, #BAD4FF 74%);
+  background-image: -moz-linear-gradient(bottom, #FFFFFF 9%, #BAD4FF 74%);
+  background-image: -webkit-linear-gradient(bottom, #FFFFFF 9%, #BAD4FF 74%);
+  background-image: -ms-linear-gradient(bottom, #FFFFFF 9%, #BAD4FF 74%);
+  background-image: linear-gradient(to bottom, #FFFFFF 9%, #BAD4FF 74%);
+}
+
+.form-button {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+.divider-line {
+    height: 1px;
+    background-color: #9CB3C6;
+    width: 100%;
+}
+
+.subtitle {
+    color: #0c76bc;
+}
+
+.title {
+  color: #0c76bc  !important;
+  font-size: 5em !important;
+}
+
+#services {
+  margin-top: -30px;
+}
+
+.is-transparent {
+  background:rgba(255,255,255,0.9);
+}
+
+.section-title {
+  color: #000000 !important;
+}
+
+#contactForm {
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+ul {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+li {
+  display: inline;
+  margin-right: 10px;
+}

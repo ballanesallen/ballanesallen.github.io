@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DeanTechIT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <script src="https://wchat.freshchat.com/js/widget.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113142353-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113142353-1');
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!--Navigation-->
+    <nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="./index.html">
+                <img src="assets/brand.png" alt="Dean Technologies" width="140" height="37" class="image">
+            </a>
+
+            <button class="button navbar-burger" data-target="navMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+            </button>
+        </div>
+        <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end">
+            <div class="navbar-item">
+              <p><a href="tel:1-760-617-4086">1-866-400-8582</a></p>
+            </div>
+            <div class="navbar-item">
+                <button class="button is-rounded" onclick="toggleSupportWindow()"><i class="far fa-life-ring"></i>&nbsp Support</button>
+            </div>
+            <div class="navbar-item">
+                <p><a href="#services">Our Services</a></p>
+            </div>
+            <div class="navbar-item">
+                <p><a href="#contactForm">Contact Us</a></p>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <!-- Support modal -->
+    <div class="modal" id="supportWindow">
+        <div class="modal-background" onclick="toggleSupportWindow()"></div>
+        <div class="modal-content">
+            <div class="box">
+
+                <!-- Form -->
+                <form action="https://formspree.io/helpdesk@dean-technologies.com" method="POST">
+                <!-- Name -->
+                <div class="field">
+                <label class="label is-small"><i class="fas fa-user"></i> Name</label>
+                <div class="control has-icons-right">
+                <input class="input is-small" type="text" placeholder="John Doe" name="Name" onblur="checkTextField(this);" id="contactName">
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+
+                <!-- Email -->
+                <div class="field">
+                <label class="label is-small"><i class="fas fa-envelope"></i> Email</label>
+                <div class="control has-icons-right">
+                <input class="input is-small" type="email" placeholder="john.doe@email.com" name="_replyto" required>
+                <span class="icon is-small is-right has-text-success is-hidden">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                </div>
+                </div>
+
+                <!-- Phone -->
+
+                <div class="field">
+                <label class="label is-small"><i class="fas fa-phone"></i> Phone</label>
+                <div class="control has-icons-right">
+                <input class="input is-small" type="tel" onkeyup="formatPhoneNumber(this)"  onblur="verifyPhoneNumber(this)" name="Phone number" placeholder="(555)555-5555">
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check-circle is-hidden"></i>
+                </span>
+                </div>
+                </div>
+
+                <!-- Issue -->
+
+
+                <div class="field">
+                    <label class="label is-small"><i class="fas fa-question-circle"></i> Issue</label>
+                    <textarea class="textarea is-small" name="Issue" type="text" placeholder="Help! I can't access the internet on my computer!"></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="Support request" />
+
+                <div class="field">
+                    <div class="control">
+                        <input class="button is-info is-medium form-button is-rounded" type="submit" value="Request support">
+                    </div>
+                </div>
+                </form>
+                <!-- End of Form -->
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close" onclick="toggleSupportWindow()"></button>
+    </div>
+
+    <!--Calendly pop-up-->
+    <div class="modal" id="scheduleAppointment">
+      <div class="modal-background" onclick="toggleScheduleAppointmentWindow()"></div>
+      <div class="modal-content">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/allendean" style="min-width:320px;height: 400px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+        <!-- Calendly inline widget end -->
+      </div>
+      <button class="modal-close is-large" aria-label="close" onclick="toggleScheduleAppointmentWindow()"></button>
+    </div>
+
+    <!--Main bannner-->
+    <section class="hero is-fullheight is-white header-image">
+    <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <h1 class="subtitle is-1 header-title"></h1>
+              <p class="subtitle is-3">Your search for a trustworthy, modern and responsible tech support company is over.</p>
+              <br>
+              <div class="columns">
+                <div class="column">
+                <a href="#services"class="button is-rounded is-info is-medium half-width">Get Started</a>
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column">
+                <button class="button is-rounded is-info is-outlined is-medium half-width" onclick="toggleSupportWindow()">Support</a>
+                </div>
+              </div>
+            </div>
+            <div class="column has-text-centered">
+              <img src="assets/modern-office.png">
+            </div>
+        </div>
+    </div>
+  </div>
+  </section>
+
+  <!--SERVICES -->
+  <section class="section"  id="services">
+            <div class="container">
+            <h1 class="subtitle is-1 section-title">We offer</h1>
+            <br>
+            <div class="columns">
+                <div class="column">
+
+                    <p class="subtitle is-3">Managed IT Services</p>
+                    <p class="content">We'll manage all of your IT services for a flat-rate fee so you can focus your efforts on spurring your revenues to grow.</p>
+
+                    <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+
+                </div>
+                <div class="column has-text-centered">
+                    <img src="assets/managed-it.svg" width="300">
+                </div>
+                </div>
+                <div class="divider-line"></div>
+                <br>
+                <br>
+             <div class="columns">
+                 <div class="column">
+                     <p class="subtitle is-3">Data Backup and Recovery</p>
+                     <p class="content">Regardless of your business size, you need dependable data backup and recovery. We can provide that to you.</p>
+                     <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+                 </div>
+                 <div class="column has-text-centered">
+                     <img src="assets/data-backup.svg" width="300">
+                 </div>
+                </div>
+                <div class="divider-line"></div>
+                <br>
+                <br>
+                <div class="columns">
+                    <div class="column">
+                        <p class="subtitle is-3">VoIP Services</p>
+                        <p class="content">With our new VoIP solutions in the Inland Empire, you can rest assured that your business needs will be met and far exceeded.</p>
+                        <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+                    </div>
+                    <div class="column has-text-centered">
+                      <img src="assets/headphones.svg" width="300">
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+                <br>
+                <br>
+                <div class="columns">
+                    <div class="column">
+                        <p class="subtitle is-3">Email hosting</p>
+                        <p class="content">We collaborate with industry-leading email services such as Office 365 and Hosted Exchange. Our team of knowledgeable email specialists will help you choose the right solution for your business.</p>
+
+                        <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+                    </div>
+                    <div class="column has-text-centered">
+                        <img src="assets/mail.svg" width="300">
+                    </div>
+                </div>
+                <div class="divider-line"></div>
+                <br>
+                <br>
+                <div class="columns">
+                    <div class="column">
+                        <p class="subtitle is-3">Web Design</p>
+                        <p class="content">Need a new website? Or maybe you are looking to update an existing one? Our team of experienced web developers will turn your website ideas into reality.</p>
+
+                        <!-- <button class="button is-rounded is-info is-medium half-width">Learn more</button> -->
+                    </div>
+                    <div class="column has-text-centered">
+                        <img src="assets/web-design.svg" width="350">
+                    </div>
+                </div>
+                </div>
+        </section>
+
+    <!-- Contact Us-->
+    <section class="section" id="contactForm">
+      <div class="container">
+      <h1 class="subtitle is-1 section-title has-text-centered">Contact us</h1>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <button class="button is-info full-width is-rounded is-large" onclick="toggleScheduleAppointmentWindow()">Schedule an appointment</button>
+        </div>
+      </div>
+    </div>
+    </section>
+    <div class="divider-line"></div>
+    <section class="footer">
+        <div class="columns">
+          <div class="column">
+            <p class="content">CONNECT WITH US</p>
+            <ul>
+              <li><i class="fab fa-facebook fa-lg"></i></li>
+              <li><i class="fab fa-twitter fa-lg"></i></li>
+              <li><i class="fab fa-linkedin fa-lg"></i></li>
+            </ul>
+            <ul>
+              <li><i class="fas fa-phone-square fa-lg"></i>&nbsp<a href="tel:1-760-617-4086">1-866-400-8582</a></li>
+            </ul>
+          </div>
+        </div>
+    </section>
+
+    <!-- Fresh chat widget -->
+    <script>
+    window.fcWidget.init({
+    token: "fe1ce649-2465-48e6-86de-3c545677ad62",
+    host: "https://wchat.freshchat.com"
+    });
+    </script>
+
+</body>
+<script>
+ document.addEventListener('DOMContentLoaded', function () {
+
+  // Get all "navbar-burger" elements
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
+
+    // Add a click event on each of them
+    $navbarBurgers.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+
+        // Get the target from the "data-target" attribute
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+
+        // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+        $el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+
+      });
+    });
+  }
+
+});
+
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+
+function formatPhoneNumber(element) {
+    element.value = phoneFormat(element.value);
+}
+
+
+function toggleSupportWindow() {
+    document.getElementById("supportWindow").classList.toggle("is-active");
+}
+
+function toggleScheduleAppointmentWindow() {
+    document.getElementById("scheduleAppointment").classList.toggle("is-active");
+}
+
+// A function to format text to look like a phone number
+function phoneFormat(input){
+        // Strip all characters from the input except digits
+        input = input.replace(/\D/g,'');
+
+        // Trim the remaining input to ten characters, to preserve phone number format
+        input = input.substring(0,10);
+
+        // Based upon the length of the string, we add formatting as necessary
+        var size = input.length;
+        if(size == 0){
+                input = input;
+        }else if(size < 4){
+                input = '('+input;
+        }else if(size < 7){
+                input = '('+input.substring(0,3)+') '+input.substring(3,6);
+        }else{
+                input = '('+input.substring(0,3)+') '+input.substring(3,6)+' - '+input.substring(6,10);
+        }
+        return input;
+}
+
+function verifyPhoneNumber(phoneNumberField){
+    let phoneNumber = phoneNumberField.value.replace(/\D/g,'');
+    let span = phoneNumberField.parentElement.getElementsByTagName("span")[0];
+    let icon = span.getElementsByTagName("i")[0];
+
+    icon.className = icon.className.replace(/\bis-hidden\b/g, "");
+
+    if(phoneNumber.length == 10) {
+        //phoneNumberField.parentElement.getElementsByTagName("span")[0].classList.toggle("is-hidden");
+
+        //Making the checkmark green
+        span.className = span.className.replace(/\has-text-danger\b/g, "");
+
+        var arr = span.className.split(" ");
+        if (arr.indexOf("has-text-success") == -1) {
+            span.className += " has-text-success";
+        }
+
+        icon.className = icon.className.replace(/\bfa-times-circle\b/g, "");
+
+        arr = icon.className.split(" ");
+        if (arr.indexOf("fa-check-circle") == -1) {
+            icon.className += " fa-check-circle";
+        }
+
+        console.log(icon.className)
+    } else {
+
+        //errorIcon.className = errorIcon.className.replace(/\bis-hidden\b/g, "");
+
+        span.className = span.className.replace(/\has-text-success\b/g, "");
+
+        //Set the font to red
+        var arr = span.className.split(" ");
+        if (arr.indexOf("has-text-danger") == -1) {
+            span.className += " has-text-danger";
+        }
+
+        icon.className = icon.className.replace(/\bfa-check-circle\b/g, "");
+
+        //Hide checkmark and enable error icon
+        arr = icon.className.split(" ");
+        if (arr.indexOf("fa-times-circle") == -1) {
+            icon.className += " fa-times-circle";
+        }
+
+        console.log(icon.className)
+    }
+
+}
+
+</script>
+</html>
